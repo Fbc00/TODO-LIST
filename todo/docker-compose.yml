@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  postgresJPA:
+    image: postgis/postgis:14-3.2-alpine
+    volumes:
+      - .dbdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=todo
+      - POSTGRES_USER=todo
+      - POSTGRES_PASSWORD=todo
+    ports:
+      - 5432:5432
