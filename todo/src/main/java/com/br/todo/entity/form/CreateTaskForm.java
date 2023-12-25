@@ -1,7 +1,6 @@
-package com.todo.todo.entity.form;
+package com.br.todo.entity.form;
 
-import com.todo.todo.types.Status;
-import jakarta.annotation.Nonnull;
+import com.br.todo.types.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

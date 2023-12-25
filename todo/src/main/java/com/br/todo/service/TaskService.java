@@ -1,8 +1,6 @@
-package com.todo.todo.service;
+package com.br.todo.service;
 
-import com.todo.todo.entity.Task;
-import com.todo.todo.entity.form.CreateTaskForm;
-import com.todo.todo.repository.TaskRepository;
+import com.br.todo.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

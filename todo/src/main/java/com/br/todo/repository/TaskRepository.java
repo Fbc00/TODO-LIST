@@ -1,7 +1,7 @@
-package com.todo.todo.repository;
+package com.br.todo.repository;
 
-import com.todo.todo.entity.Task;
-import com.todo.todo.types.Status;
+import com.br.todo.entity.Task;
+import com.br.todo.types.Status;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDateTime;

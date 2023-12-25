@@ -1,14 +1,14 @@
-package com.todo.todo.entity;
+package com.br.todo.entity;
 
-import com.todo.todo.types.Status;
+import com.br.todo.types.Status;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 
 
 @Entity
@@ -17,9 +17,11 @@ import lombok.NoArgsConstructor;
 @Data
 @Table(name = "tb_task")
 public class Task {
-
     @Id
+    @jakarta.persistence.Id
+
     @GeneratedValue(strategy = GenerationType.AUTO)
+
     private Long id;
     private Status status;
 
@@ -28,7 +30,7 @@ public class Task {
     private  String Description;
     @Column(updatable = false)
     @CreatedDate
-    private LocalDateTime created_at;
+    private LocalDateTime createdAt;
 
 
     @ManyToOne(cascade = CascadeType.ALL)
