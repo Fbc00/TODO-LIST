@@ -1,13 +1,13 @@
 package com.br.todo.entity;
 
 import com.br.todo.types.UserRoles;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.*;
-import org.springframework.data.annotation.Id;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -22,7 +22,6 @@ import java.util.List;
 public class User implements UserDetails {
 
     @Id
-    @jakarta.persistence.Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -39,9 +38,9 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Task> taskList =  new ArrayList<>();
 
-    public User(String login, String encryptedPassword, UserRoles role) {
+    public User(String login, String password, UserRoles role) {
         this.login = login;
-        this.password = encryptedPassword;
+        this.password = password;
         this.role = role;
     }
 
@@ -54,13 +53,13 @@ public class User implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return this.password;
     }
 
 
     @Override
     public String getUsername() {
-        return null;
+        return this.login;
     }
 
     @Override

@@ -1,5 +1,16 @@
-version: '3.8'
+version: '3'
 services:
+  todo-back:
+    build: .
+    image: todo-back:dev
+    container_name: todo-back
+    command: "mvn package && java -jar target/todo.jar"
+    volumes:
+      - .:/todo-back
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgresJPA
   postgresJPA:
     image: postgis/postgis:14-3.2-alpine
     volumes:

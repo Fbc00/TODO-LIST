@@ -12,8 +12,3 @@ spring:
   security:
     token:
       secret: ${JWT-SECRET:chave-secreta}
-logging:
-  level:
-    org:
-      hibernate:
-        type: trace

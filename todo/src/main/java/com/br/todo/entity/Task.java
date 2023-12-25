@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Id;
 
 
 @Entity
@@ -18,8 +18,6 @@ import org.springframework.data.annotation.Id;
 @Table(name = "tb_task")
 public class Task {
     @Id
-    @jakarta.persistence.Id
-
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Long id;

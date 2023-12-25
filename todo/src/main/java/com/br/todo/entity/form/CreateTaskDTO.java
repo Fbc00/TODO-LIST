@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateTaskForm {
+public class CreateTaskDTO {
 
     private String title;
 

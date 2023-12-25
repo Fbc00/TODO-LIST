@@ -24,13 +24,11 @@ public class AuthController {
 
     @Autowired
     private AuthenticationManager authenticationManager;
-
-
     @Autowired
     private UserRepository userRepository;
-
     @Autowired
     TokenService tokenService;
+
     @PostMapping("/login")
     public ResponseEntity login (@RequestBody @Validated AuthDTO data) {
         var usernamePassword = new UsernamePasswordAuthenticationToken(data.login(), data.password());
