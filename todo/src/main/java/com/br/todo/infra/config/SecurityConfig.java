@@ -14,7 +14,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-;
 
 @Configuration
 @EnableWebSecurity
@@ -30,12 +29,13 @@ public class SecurityConfig {
           session.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
       })
               .authorizeHttpRequests(authorize -> {
-                  authorize.requestMatchers("/task/**").authenticated()
-                          .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
-                          .requestMatchers(HttpMethod.POST, "/auth/register").permitAll();
+                  authorize.requestMatchers("api/task/**").authenticated()
+                          .requestMatchers(HttpMethod.POST, "api/auth/login").permitAll()
+                          .requestMatchers(HttpMethod.POST, "api/auth/register").permitAll()
+                          .anyRequest().permitAll();
               })
 
-              .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
+              .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class) // TODO: RODAR ISSO SOMENTTE PARA ENDPOINTS NÃO PÚBLICOS
               .build();
     }
 
